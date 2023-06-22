@@ -2,7 +2,7 @@
   "name": "vscode-modulr",
   "displayName": "vscode-modulr",
   "description": "Modulr Extension for VS Code",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": "https://github.com/modulr-framework/vscode-modulr",
   "publisher": "mitzerh",
   "author": "mitzerh",

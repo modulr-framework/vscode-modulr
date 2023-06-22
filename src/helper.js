@@ -126,7 +126,7 @@ class Helper {
                 return val;
             })();
 
-            moduleName = `${conf.uid}:${path.modulePath}`;
+            moduleName = ((conf.uid) ? `${conf.uid}:` : '') + path.modulePath;
             modulrInstance = conf.scopeName || 'Modulr';
 
         }

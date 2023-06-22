@@ -14,8 +14,7 @@ Requires a `.modulrc` created on the application base path
 
 ## Installation
 
-This extension is not publicly available in the marketplace. In order to install this locally,
-generate a local `*.vsix` package file:
+To install this locally, generate a local `*.vsix` package file:
 
 ```
 npm run package

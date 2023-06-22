@@ -1,10 +1,10 @@
-const CLIHelper = require('cli-helper').constructor;
+const fs = require('fs');
 
 
-class Helper extends CLIHelper {
+class Helper {
 
     constructor() {
-        super();
+
     }
 
     getTemplate(name) {
@@ -13,6 +13,39 @@ class Helper extends CLIHelper {
 
         if (this.isFileExists(tplPath)) {
             ret = this.readFile(tplPath);
+        }
+        return ret;
+    }
+
+    isPathExists(path) {
+        let stat = true;
+        try {
+            stat = fs.existsSync(path);
+        } catch(err1) {
+            try {
+                stat = fs.statSync(path);
+            } catch(err2) {
+                stat = false;
+            }
+        }
+        return stat;
+    }
+
+    isFileExists(path) {
+        let ret = false;
+        if (path && this.isPathExists(path)) {
+            const stat = fs.statSync(path);
+            if (stat.isFile()) {
+                ret = true;
+            }
+        }
+        return ret;
+    }
+
+    readFile(path) {
+        let ret = false;
+        if (this.isPathExists(path)) {
+            ret = fs.readFileSync(path, { encoding: 'utf8' });
         }
         return ret;
     }

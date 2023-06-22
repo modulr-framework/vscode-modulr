@@ -18,8 +18,20 @@ module.exports = () => {
 
         editor.edit((active) => {
 			const pos = new vscode.Position(0, 0);
-            //active.insert(pos, JSON.stringify(pathInfo, null, 2));
-            active.insert(pos, template(pathInfo));
+
+            let proceed = (pathInfo &&
+                pathInfo.conf &&
+                pathInfo.moduleName &&
+                pathInfo.modulrInstance
+            ) ? true : false
+
+            if (proceed) {
+                // active.insert(pos, JSON.stringify(pathInfo, null, 2));
+                active.insert(pos, template(pathInfo));
+            } else {
+                vscode.window.showInformationMessage('Cannot define file!');
+            }
+
 		});
 
     }
